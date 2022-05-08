@@ -12,8 +12,9 @@
       id="link"
       :key="item.title"
       :to="item.url"
-      :class="menuClass"
+      class="flex flex-row flex-wrap px-6 py-3 text-textGray items-center"
     >
+      <mdicon :name="item.icon" size="20" class="mr-2" />
       <div class="text-bold">
         {{ item.title }}
       </div>
@@ -26,7 +27,6 @@
 export default {
   data() {
     return{
-      menuClass: 'flex flex-row flex-wrap px-6 py-2 text-textGray',
       menu: [
         {
           title: 'Home',
@@ -35,42 +35,42 @@ export default {
         },
         {
           title: 'Analytics',
-          icon: '',
+          icon: 'chart-pie',
           url: '/cms/analytics'
         },
         {
           title: 'Manage Assets',
-          icon: '',
+          icon: 'folder-image',
           url: '/cms/asset'
         },
         {
           title: 'Manage Pages',
-          icon: '',
+          icon: 'book-multiple',
           url: '/cms/page'
         },
         {
           title: 'Manage Templates',
-          icon: '',
+          icon: 'collage',
           url: '/cms/template'
         },
         {
           title: 'Manage Themes',
-          icon: '',
+          icon: 'format-paint',
           url: '/cms/theme'
         },
         {
           title: 'Manage Admins',
-          icon: '',
+          icon: 'account-group',
           url: '/cms/admin'
         },
         {
           title: 'Profile',
-          icon: '',
+          icon: 'account-tie',
           url: '/cms/profile'
         },
         {
           title: 'Settings',
-          icon: '',
+          icon: 'cog',
           url: '/cms/setting'
         },
       ]
