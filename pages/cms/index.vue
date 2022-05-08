@@ -2,22 +2,27 @@
   <div>
     <Topbar
       :title="pageTitle"
-      :userData="userData"
     />
     <div class="px-8 pt-5">
       <p class="font-semibold text-dark tracking-wider">Selamat Datang</p>
-      <h3 class="font-bold text-5xl my-4">{{ userData.name }}</h3>
+      <h3 class="font-bold text-5xl my-4">{{ getUserData.name }}</h3>
       <div class="grid grid-cols-4 grid-flow-row gap-8 mt-8">
         <div class="p-4 rounded-lg bg-orange col-span-2 row-span-2">
 
         </div>
-        <KPICard v-for="item in highlight" :key="item.title" :data="item" />
+        <KPICard
+          v-for="item in highlight"
+          :key="item.title"
+          :data="item"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'CMSHomePage',
   layout: 'cms',
@@ -47,6 +52,9 @@ export default {
         },
       ]
     }
+  },
+  computed: {
+    ...mapGetters(['getUserData'])
   }
 }
 </script>
