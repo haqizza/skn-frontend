@@ -8,7 +8,7 @@
         {{ getUserData.name }}
       </div>
       <div id="userImage" class="w-10 h-10 bg-cover rounded-full outline outline-offset-2 outline-2 outline-slate-300">
-        <img class="w-10 h-10 rounded-full" :src="getUserData.img" alt="User photo" />
+        <img class="w-10 h-10 rounded-full" :src="getImgUrl(getUserData.img)" alt="User photo" />
       </div>
     </div>
   </div>
@@ -19,6 +19,11 @@ import { mapGetters } from 'vuex';
 
 export default {
   props: ['title'],
+  methods:{
+    getImgUrl: (filename) => {
+      return require('@/assets/img/' + filename)
+    }
+  },
   computed: {
     ...mapGetters(['getUserData'])
   }

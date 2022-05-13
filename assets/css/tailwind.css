@@ -15,4 +15,13 @@
     color: theme('colors.white') !important;
     width: 98%;
   }
+
+  .right-colon::before {
+    content: ": ";
+    max-width: 30%
+  }
+
+  tr.bottomp-8 > td {
+    padding-bottom: theme('padding.8')
+  }
 }

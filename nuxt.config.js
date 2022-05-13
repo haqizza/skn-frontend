@@ -52,7 +52,12 @@ export default {
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/axios',
+    'nuxt-highcharts',
   ],
+
+  highcharts: {
+
+  },
 
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',

@@ -1,7 +1,13 @@
 export const state = () => ({
   userData: {
     name: 'John Doe',
-    img: 'image/home.jpg'
+    email: 'john@doe.com',
+    phone: '825301623',
+    address: '19 Heyhurts Line',
+    city: 'Mcallen',
+    state: 'NY',
+    country: 'US',
+    img: 'home.jpg'
   },
   userProfile: {},
   storage: process.env.STRAPI_URL
