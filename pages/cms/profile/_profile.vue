@@ -56,7 +56,7 @@ export default {
     }
   },
   methods: {
-    getImgUrl: (filename) => {
+    getImgUrl: function(filename) {
       return require('@/assets/img/' + filename)
     }
   },

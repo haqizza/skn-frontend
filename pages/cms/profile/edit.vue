@@ -86,21 +86,17 @@ export default {
   },
   methods: {
     ...mapMutations(['SET_CURRENT_USERDATA']),
-    getImgUrl: (filename) => {
+    getImgUrl: function(filename) {
       return require('@/assets/img/' + (filename == '' ? 'home.jpg' : filename))
     },
-    saveProfile: () => {
-      this.$axios.$post('', userData)
-      this.SET_CURRENT_USERDATA(userData);
+    saveProfile: function() {
+      this.$axios.$post('', this.userData)
+      this.SET_CURRENT_USERDATA(this.userData);
     },
-    goBack: () => {
+    goBack: function() {
       this.$router.go(-1);
     },
   },
-  // mounted() {
-  //   this.userData = this.getUserData()
-
-  // },
   computed: {
     ...mapGetters(['getUserData']),
   }
