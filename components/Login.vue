@@ -2,7 +2,7 @@
   <div class="w-1000 h-4/5 flex flex-row flex-wrap bg-white rounded-lg">
     <div class="min-w-300 w-35p h-full flex flex-col flex-wrap items-center justify-center">
       <div class="my-2">
-        <img class="w-36" src="~/assets/img/logo.png" alt="Logo Sinar Karya Nusa">
+        <img class="w-36" :src="imageUrl + 'logo.png'" alt="Logo Sinar Karya Nusa">
       </div>
       <p class="text-lg text-gray font-black tracking-wider my-2">CV. SINAR KARYA NUSA</p>
       <p class="text-lg font-black tracking-wider my-2">Login to Dashboard Admin</p>
@@ -23,7 +23,8 @@
         </div>
       </form>
     </div>
-    <div class="w-65p bg-[url('~assets/img/login-poster.png')] bg-cover">
+    <div class="w-65p h-full">
+      <img :src="imageUrl + 'image10.jpeg'" alt="" class="object-cover w-full h-full">
     </div>
   </div>
 </template>
@@ -34,6 +35,7 @@ export default {
   name: 'Login',
   data() {
     return {
+      imageUrl: process.env.assetsUrl,
       email: '',
       password: '',
       passwordInputType: 'password'

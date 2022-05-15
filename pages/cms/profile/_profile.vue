@@ -36,7 +36,7 @@
       </div>
       <div class="mx-8 flex flex-col justify-center items-center">
         <div id="profileImage" class="w-48 h-48 bg-cover rounded-full outline outline-offset-8 outline-2 outline-orange">
-          <img class="w-48 h-48 rounded-full" :src="getImgUrl(getUserData.img)" alt="User photo" />
+          <img class="w-48 h-48 rounded-full" :src=" imageUrl + getUserData.img" alt="User photo" />
         </div>
         <NuxtLink to="profile/edit" class="px-8 py-2 mt-10 text-center text-white font-bold bg-orange rounded-full">
           Edit Profile
@@ -52,12 +52,7 @@ export default {
   layout: 'cms',
   data() {
     return {
-
-    }
-  },
-  methods: {
-    getImgUrl: function(filename) {
-      return require('@/assets/img/' + filename)
+      imageUrl: process.env.assetsUrl
     }
   },
   computed: {

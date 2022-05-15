@@ -1,7 +1,6 @@
 
 module.exports = {
-  content: [
-  ],
+  darkMode: 'class',
   theme: {
     fontFamily: {
       'sans': ['Mulish'],
@@ -28,6 +27,9 @@ module.exports = {
       minWidth: {
         'kpi' : '13rem',
         '300': '300px'
+      },
+      minHeight: {
+        '50p': '50%'
       }
     }
   },

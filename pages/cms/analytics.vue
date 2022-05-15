@@ -10,6 +10,20 @@
           align="center"
         />
       </div>
+      <div class="main-container my-4 flex flex-row">
+        <div>
+          Visitor graphics
+        </div>
+        <div class="flex flex-col">
+          Device
+          <div>
+
+          </div>
+          <div class="flex flex-col">
+
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>

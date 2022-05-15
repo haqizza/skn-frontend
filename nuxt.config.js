@@ -15,7 +15,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ]
   },
 
@@ -25,12 +25,12 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    // '@/assets/css/main.css'
+    '@/assets/css/main.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/vue-mdi.js'}
+    { src: '~/plugins/vue-mdi' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -44,9 +44,13 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // '@nuxtjs/svg'
     '@nuxt/postcss8',
+    '@nuxtjs/color-mode'
   ],
+
+  colorMode: {
+    classSuffix: '',
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -54,6 +58,10 @@ export default {
     '@nuxtjs/axios',
     'nuxt-highcharts',
   ],
+
+  env: {
+    assetsUrl : process.env.ASSETS_URL,
+  },
 
   highcharts: {
 
@@ -74,7 +82,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: ['mdi-vue'],
+    transpile: [
+      'mdi-vue',
+    ],
     postcss: {
       plugins: {
         tailwindcss: {},

@@ -7,7 +7,7 @@
       <p class="font-semibold text-dark tracking-wider">Selamat Datang</p>
       <h3 class="font-bold text-5xl my-4">{{ getUserData.name }}</h3>
       <div class="grid grid-cols-4 grid-flow-row gap-8 mt-8">
-        <div class="p-4 rounded-lg bg-orange col-span-2 row-span-2">
+        <div class="p-4 rounded-lg bg-orange col-span-2 row-span-3">
 
         </div>
         <KPICard

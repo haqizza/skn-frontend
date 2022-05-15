@@ -1,9 +1,10 @@
 <template>
-
+  <Nuxt />
 </template>
+
 
 <script>
 export default {
-  layout: 'cms'
+  name: 'Plain'
 }
 </script>

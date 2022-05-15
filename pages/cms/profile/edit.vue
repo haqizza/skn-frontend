@@ -93,9 +93,6 @@ export default {
       this.$axios.$post('', this.userData)
       this.SET_CURRENT_USERDATA(this.userData);
     },
-    goBack: function() {
-      this.$router.go(-1);
-    },
   },
   computed: {
     ...mapGetters(['getUserData']),
