@@ -9,7 +9,7 @@
           </client-only>
       </div>
       <div class="flex flex-row justify-end">
-        <div @click="saveText()" class="px-12 py-4 rounded-2xl text-white font-bold bg-orange">Submit</div>
+        <div @click="saveText()" class="px-12 py-4 rounded-2xl text-white font-bold bg-accentOrange">Submit</div>
       </div>
     </div>
   </div>
@@ -17,6 +17,7 @@
 
 <script>
 export default {
+  middleware: 'auth',
   layout: 'cms',
   data() {
     return {

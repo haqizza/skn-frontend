@@ -1,9 +1,9 @@
 <template>
-  <HomeLight/>
+  <ProcessLight/>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'ProcessPage',
 }
 </script>

@@ -11,9 +11,9 @@ module.exports = {
     },
     extend: {
       colors: {
-        gray: '#9FA2B4',
+        accentGray: '#9FA2B4',
         textGray: '#A4A6B3',
-        orange: '#F39200',
+        accentOrange: '#F39200',
         dark: '#363740',
       },
       textSize:{

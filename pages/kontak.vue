@@ -1,9 +1,9 @@
 <template>
-  <HomeLight/>
+  <ContactLight />
 </template>
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'ContactPage',
 }
 </script>

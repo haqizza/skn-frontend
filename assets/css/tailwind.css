@@ -10,7 +10,7 @@
 }
 @layer components {
   .active-menu {
-    background-color: theme('colors.orange') !important;
+    background-color: theme('colors.accentOrange') !important;
     align-self: end;
     color: theme('colors.white') !important;
     width: 98%;

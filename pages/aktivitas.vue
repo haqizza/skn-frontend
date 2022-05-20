@@ -1,9 +1,9 @@
 <template>
-  <HomeLight/>
+  <ActivityLight/>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'ActivityPage',
 }
 </script>

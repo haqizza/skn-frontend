@@ -30,15 +30,16 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/vue-mdi' },
+    { src: '~/plugins/vue-mdi.js' },
+    { src: '~/plugins/carousel-3d.js', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: {
     dirs:[
       '~/components',
-      '~/components/Home',
       '~/components/CMS',
+      '~/components/Web',
     ]
   },
 
@@ -57,10 +58,39 @@ export default {
     '@nuxtjs/tailwindcss',
     '@nuxtjs/axios',
     'nuxt-highcharts',
+    '@nuxtjs/auth-next',
   ],
 
   env: {
     assetsUrl : process.env.ASSETS_URL,
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        // scheme: "refresh",
+        token: {
+          property: "token",
+          global: true,
+          required: true,
+          type: "Bearer"
+        },
+        user: {
+          property: "user",
+          autoFetch: true
+        },
+        // refreshToken: {  // it sends request automatically when the access token expires, and its expire time has set on the Back-end and does not need to we set it here, because is useless
+        //   property: "refresh_token", // property name that the Back-end sends for you as a refresh token for saving on localStorage and cookie of user browser
+        //   data: "refresh_token", // data can be used to set the name of the property you want to send in the request.
+        // },
+        endpoints: {
+          login: { url: "/api/auth/login", method: "post" },
+          // refresh: { url: "/api/auth/refresh-token", method: "post" },
+          logout: false,
+          user: { url: "/api/auth/user", method: "get" }
+        }
+      }
+    }
   },
 
   highcharts: {
@@ -84,6 +114,7 @@ export default {
   build: {
     transpile: [
       'mdi-vue',
+      'vue-carousel-3d'
     ],
     postcss: {
       plugins: {

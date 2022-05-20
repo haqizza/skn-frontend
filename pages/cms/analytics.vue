@@ -30,6 +30,7 @@
 
 <script>
 export default {
+  middleware: 'auth',
   layout: 'cms',
   data() {
     return {

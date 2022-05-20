@@ -1,9 +1,9 @@
 <template>
-  <HomeLight/>
+  <AboutLight/>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'AboutPage',
 }
 </script>

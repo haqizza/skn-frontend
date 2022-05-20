@@ -9,8 +9,8 @@
     <!-- active-menu -->
     <NuxtLink
       v-for="item in menu"
-      id="link"
-      :key="item.title"
+      :id="item.id"
+      :key="item.id"
       :to="item.url"
       class="flex flex-row flex-wrap px-6 py-3 text-textGray items-center"
     >
@@ -23,52 +23,62 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 
 export default {
   data() {
     return{
       menu: [
         {
+          id: 'home',
           title: 'Home',
           icon: 'home',
           url: '/cms'
         },
         {
+          id: 'analytics',
           title: 'Analytics',
           icon: 'chart-pie',
           url: '/cms/analytics'
         },
         {
+          id: 'asset',
           title: 'Manage Assets',
           icon: 'folder-image',
           url: '/cms/asset'
         },
         {
+          id: 'page',
           title: 'Manage Pages',
           icon: 'book-multiple',
           url: '/cms/page'
         },
         {
+          id: 'template',
           title: 'Manage Templates',
           icon: 'collage',
           url: '/cms/template'
         },
         {
+          id: 'theme',
           title: 'Manage Themes',
           icon: 'format-paint',
           url: '/cms/theme'
         },
         {
+          id: 'admin',
           title: 'Manage Admins',
           icon: 'account-group',
           url: '/cms/admin'
         },
         {
+          id: 'profile',
           title: 'Profile',
           icon: 'account-tie',
           url: '/cms/profile'
         },
         {
+          id: 'setting',
           title: 'Settings',
           icon: 'cog',
           url: '/cms/setting'
@@ -76,7 +86,14 @@ export default {
       ]
     }
   },
-  methods:{
+  mounted() {
+    const userSetting = document.getElementById('admin');
+    if(getUserData.role != 'administrator'){
+      userSetting.remove();
+    }
+  },
+  computed: {
+    ...mapGetters(['getUserData'])
   }
 }
 </script>

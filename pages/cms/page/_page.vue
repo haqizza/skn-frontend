@@ -25,7 +25,7 @@
             </div>
           </div>
           <div class="m-4 place-self-end">
-            <div class="w-fit py-2 px-4 flex flex-row items-center bg-orange text-white font-bold rounded-xl">
+            <div class="w-fit py-2 px-4 flex flex-row items-center bg-accentOrange text-white font-bold rounded-xl">
               <mdicon name="plus-circle" size="20" class="mr-2" />
               <div>Add New Page</div>
             </div>
@@ -38,6 +38,7 @@
 
 <script>
 export default {
+  middleware: 'auth',
   layout: 'cms',
   data() {
     return {

@@ -24,6 +24,7 @@
 <script>
 import { mapMutations, mapGetters } from 'vuex';
 export default {
+  middleware: 'auth',
   layout: 'cms',
   computed: {
     ...mapGetters(['getDark'])

@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="flex flex-row justify-end">
-          <div class="px-12 py-3 mt-3 rounded-2xl text-white font-bold bg-orange">Submit</div>
+          <div class="px-12 py-3 mt-3 rounded-2xl text-white font-bold bg-accentOrange">Submit</div>
         </div>
       </form>
     </div>
@@ -22,6 +22,7 @@
 <script>
 
 export default {
+  middleware: 'auth',
   layout: 'cms',
   data() {
     return {

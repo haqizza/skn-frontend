@@ -35,10 +35,10 @@
         </table>
       </div>
       <div class="mx-8 flex flex-col justify-center items-center">
-        <div id="profileImage" class="w-48 h-48 bg-cover rounded-full outline outline-offset-8 outline-2 outline-orange">
+        <div id="profileImage" class="w-48 h-48 bg-cover rounded-full outline outline-offset-8 outline-2 outline-accentOrange">
           <img class="w-48 h-48 rounded-full" :src=" imageUrl + getUserData.img" alt="User photo" />
         </div>
-        <NuxtLink to="profile/edit" class="px-8 py-2 mt-10 text-center text-white font-bold bg-orange rounded-full">
+        <NuxtLink to="profile/edit" class="px-8 py-2 mt-10 text-center text-white font-bold bg-accentOrange rounded-full">
           Edit Profile
         </NuxtLink>
       </div>
@@ -49,6 +49,7 @@
 <script>
 import { mapGetters } from 'vuex';
 export default {
+  middleware: 'auth',
   layout: 'cms',
   data() {
     return {

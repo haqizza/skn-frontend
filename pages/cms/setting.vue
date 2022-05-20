@@ -13,6 +13,7 @@
 import { mapGetters } from 'vuex';
 
 export default {
+  middleware: 'auth',
   layout: 'cms',
   computed: {
     ...mapGetters(['getSiteIdentity'])
