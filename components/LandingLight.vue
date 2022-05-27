@@ -1,12 +1,7 @@
 <template>
-  <div>
+  <div class="w-full">
     <Navigation />
-    <Banner />
-    <Intro />
-    <Product />
-    <Production />
-    <Activity />
-    <Consult />
+    <slot />
     <Footer />
   </div>
 </template>

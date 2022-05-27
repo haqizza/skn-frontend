@@ -1,55 +1,46 @@
 <template>
   <div class="overflow-scroll">
-    <Topbar title="Manage Pages" />
-    <div class="main-container">
-      <div>
-        <h3 class="mb-4 font-bold text-xl">All Pages</h3>
-        <div class="flex flex-col">
-          <div class="px-4 py-2 flex flex-row font-semibold text-textGray border-b border-solid border-slate-300">
-            <div class="w-1/4">Page</div>
-            <div class="w-1/5">Created By</div>
-            <div class="w-1/5">Status</div>
-            <div class="">Actions</div>
+      <Topbar :title="page.title" backButton=true />
+      <div class="main-container mt-8">
+        <div class="text-xl">Components</div>
+        <div
+          v-for="comp in components"
+          :key="comp.id"
+          class="h-full my-4 py-4 px-8 mr-6 flex flex-row text-lg items-center justify-between bg-white border border-slate-300 rounded-xl text-dark"
+        >
+          <div class="flex flex-row">
+            <mdicon name="collage" size="26" class="mr-4" />
+            <div>{{ comp.component }}</div>
           </div>
-          <div v-for="page in pages" :key="page.title" class="px-4 py-2 flex flex-row items-center font-medium border-b border-solid border-slate-300">
-            <div class="w-1/4">{{ page.title }}</div>
-            <div class="w-1/5">{{ page.creator }}</div>
-            <div class="w-1/5">{{ page.status }}</div>
-            <div class="w-[30%] py-4 flex flex-row text-white h-fit">
-              <div class="px-4 py-1 mr-1 bg-blue-500 rounded-full">VIEW</div>
-              <div class="px-4 py-1 mr-1 bg-yellow-500 rounded-full">EDIT</div>
-              <div class="px-4 py-1 mr-1 bg-red-500 rounded-full">DELETE</div>
-            </div>
-            <div class=" p-3 rounded-full hover:bg-slate-100 ">
-              <mdicon name="dots-vertical" size="20" class="h-fit" />
-            </div>
-          </div>
-          <div class="m-4 place-self-end">
-            <div class="w-fit py-2 px-4 flex flex-row items-center bg-accentOrange text-white font-bold rounded-xl">
-              <mdicon name="plus-circle" size="20" class="mr-2" />
-              <div>Add New Page</div>
-            </div>
-          </div>
+          <NuxtLink v-if="comp.content.title != 'Banner'" :to="'/cms/page/component?id=' + comp.id" class="p-2 hover:bg-slate-200 rounded-full">
+            <mdicon name="pencil" size="26" />
+          </NuxtLink>
         </div>
       </div>
-    </div>
   </div>
 </template>
 
 <script>
 export default {
-  middleware: 'auth',
+  // middleware: 'auth',
+  async asyncData({ $axios, route }) {
+    let page = await $axios.$get(
+      'http://127.0.0.1:4000/pages/' + route.params.page
+    ).then((res) => res);
+
+    let components = await $axios.$get(
+      'http://127.0.0.1:4000/components/page/' + route.params.page
+    ).then((res) => res);
+    return { components, page }
+  },
   layout: 'cms',
   data() {
     return {
-      pages: [
-        {
-          title: 'john19@gmail.com',
-          creator: 'John Doe',
-          status: 'admin'
-        },
-      ]
+      pageId: this.$route.params.page
     }
+  },
+  methods: {
+
   }
 }
 </script>

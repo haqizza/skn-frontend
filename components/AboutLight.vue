@@ -1,17 +1,13 @@
 <template>
-  <div>
+  <div class="w-full">
     <Navigation />
-    <Banner2 image="image17.jpeg" />
-    <Intro2 />
-    <VisionMission />
-    <Location />
-    <Consult />
+    <slot />
     <Footer />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
+  name: 'AboutPage',
 }
 </script>

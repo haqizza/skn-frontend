@@ -4,9 +4,9 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'skn-frontend',
+    title: 'Sinar Karya Nusa',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'id'
     },
     meta: [
       { charset: 'utf-8' },
@@ -15,7 +15,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '~/assets/logo-white.ico' },
     ]
   },
 
@@ -56,8 +56,8 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/axios',
     'nuxt-highcharts',
+    '@nuxtjs/axios',
     '@nuxtjs/auth-next',
   ],
 
@@ -69,25 +69,15 @@ export default {
     strategies: {
       local: {
         // scheme: "refresh",
-        token: {
-          property: "token",
-          global: true,
-          required: true,
-          type: "Bearer"
-        },
-        user: {
-          property: "user",
-          autoFetch: true
-        },
-        // refreshToken: {  // it sends request automatically when the access token expires, and its expire time has set on the Back-end and does not need to we set it here, because is useless
-        //   property: "refresh_token", // property name that the Back-end sends for you as a refresh token for saving on localStorage and cookie of user browser
-        //   data: "refresh_token", // data can be used to set the name of the property you want to send in the request.
+        // token: {
+          // property: "auth-token",
+          // global: true,
+          // required: true,
+          // type: "Bearer"
         // },
         endpoints: {
-          login: { url: "/api/auth/login", method: "post" },
-          // refresh: { url: "/api/auth/refresh-token", method: "post" },
-          logout: false,
-          user: { url: "/api/auth/user", method: "get" }
+          login: { url: "/auth", method: "post", propertyName: 'token' },
+          user: false,
         }
       }
     }
@@ -107,7 +97,7 @@ export default {
   },
 
   axios: {
-    baseURL: 'http://localhost:4000'
+    baseURL: process.env.API_URL
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

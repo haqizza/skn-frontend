@@ -6,12 +6,12 @@
     </div>
     <div class="p-20 flex flex-row align-stretch ">
       <div class="w-1/2 h-72 mx-4">
-        <img src="~/assets/img/palletes.png" alt="Foto Pengiriman Barang" class="object-cover w-full h-full">
+        <img :src="imageUrl + compData.image.url" :alt="compData.image.alt" class="object-cover w-full h-full">
       </div>
       <div class="w-1/2 mx-4 flex flex-col">
-        <h2 class="my-4 text-yellow-800">SINAR KARYA NUSA</h2>
+        <h2 class="my-4 text-yellow-800">{{ compData.title }}</h2>
         <hr class="w-12 border-2 border-solid border-yellow-500">
-        <p class="my-4 text-lg">CV. Sinar Karya Nusa menyediakan berbagai pallet kayu yang bisa disesuaikan dengan kebutuhan anda.</p>
+        <p class="my-4 text-lg">{{ compData.text }}</p>
       </div>
     </div>
     <div class="absolute -left-2 bottom-0 flex flex-col">
@@ -24,6 +24,7 @@
 
 <script>
 export default {
+  props: ['compData'],
   data() {
     return {
       imageUrl: process.env.assetsUrl,

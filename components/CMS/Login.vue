@@ -6,7 +6,7 @@
       </div>
       <p class="text-lg text-accentGray font-black tracking-wider my-2">CV. SINAR KARYA NUSA</p>
       <p class="text-lg font-black tracking-wider my-2">Login to Dashboard Admin</p>
-      <form class="w-10/12" @submit.prevent="handleSubmit">
+      <form class="w-10/12" @submit.prevent="login()" method="post">
         <div class="flex flex-col w-full flex-wrap items-stretch justify-center text-xs my-2">
 
           <label class="text-tiny text-accentGray font-bold" for="email">Email</label>
@@ -35,39 +35,40 @@ export default {
   data() {
     return {
       imageUrl: process.env.assetsUrl,
-      email: '',
-      password: '',
+      email: 'thorif.m.artanel@gmail.com',
+      password: '@Abc12345',
       passwordInputType: 'password'
     }
   },
   methods: {
     login: async function() {
       try {
-        let response = await this.$auth.loginWith("local", {
+        let response = await this.$auth.loginWith('local', {
           data: {
             email: this.email,
             password: this.password
           }
         });
-        console.log(response);
-        this.$router.push("/cms");
+
+        let resUser = await this.$axios.$get('/user/' + response.data.userId,
+        {
+          headers: {
+            'auth-token': this.$auth.strategy.token.get()
+          }
+        })
+
+        this.$auth.setUser({
+          userId: response.data.userId,
+          ...resUser.user
+        })
+
+        this.$router.push('/cms');
       } catch (err) {
+        console.log(err);
       }
     },
-    fetchUserData: async function(authStatus){
-      const userData = await this.$axios
-        .$get(
-          url,
-          {
-            params: {
-              email: this.email,
-              password: this.password,
-            }
-          }
-      )
-      Document.cookie('userData', userData, 60*60*24*90);
-    },
     changePasswordVisibility: function() {
+      console.log(this.$auth.token);
       this.passwordInputType = this.passwordInputType == 'password' ? 'text' : 'password';
     }
   },

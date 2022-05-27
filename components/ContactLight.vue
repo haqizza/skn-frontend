@@ -1,19 +1,13 @@
 <template>
-  <div>
+  <div class="w-full">
     <Navigation />
-    <Banner2 image="image7.jpeg" />
-    <Consult />
-    <ContactForm />
+    <slot />
     <Footer />
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      imageUrl: process.env.assetsUrl,
-    }
-  },
+  name: 'ContactPage',
 }
 </script>

@@ -9,13 +9,6 @@
   }
 }
 @layer components {
-  .active-menu {
-    background-color: theme('colors.accentOrange') !important;
-    align-self: end;
-    color: theme('colors.white') !important;
-    width: 98%;
-  }
-
   .right-colon::before {
     content: ": ";
     max-width: 30%

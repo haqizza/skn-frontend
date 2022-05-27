@@ -14,13 +14,9 @@
         ></iframe>
       </div>
       <div class="w-1/2 mx-4 flex flex-col">
-        <h2 class="my-4 text-yellow-800">Lokasi</h2>
+        <h2 class="my-4 text-yellow-800">{{ compData.title }}</h2>
         <hr class="w-12 border-2 border-solid border-yellow-500">
-        <p class="my-4 text-lg">CV. Sinar Karya Nusa<br>
-          Jl. M.T Haryono-Setu, Taman Sari,<br>
-          Kec.Setu, Bekasi, Jawa Barat (17320)
-        </p>
-        <NuxtLink class="w-fit px-3 py-2 my-4 bg-accentOrange text-white font-semibold" to="/produk">LIHAT DETAIL PRODUK</NuxtLink>
+        <p class="my-4 text-lg">{{ compData.text }}</p>
       </div>
     </div>
     <div class="absolute -left-2 bottom-0 flex flex-col">
@@ -33,10 +29,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      imageUrl: process.env.assetsUrl,
-    }
-  },
+  props: ['compData'],
 }
 </script>

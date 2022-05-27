@@ -1,17 +1,19 @@
 <template>
   <div class="flex flex-row items-center justify-between p-8">
-    <div class="flex flex-row text-dark text-xl font-bold">
-      <mdicon v-if="backButton" name="arrow-left" class="mr-3" />
+    <div class="flex flex-row items-center text-dark text-xl font-bold">
+      <div @click="goBack()" class="mr-3">
+        <mdicon v-if="backButton" name="arrow-left" />
+      </div>
       <div>
         {{ title }}
       </div>
     </div>
     <div class="flex flex-row">
       <div class="h-fit text-dark text-base self-center mr-4">
-        {{ getUserData.name }}
+        {{ $auth.user.nama }}
       </div>
       <div id="userImage" class="w-10 h-10 bg-cover rounded-full outline outline-offset-2 outline-2 outline-slate-300">
-        <img class="w-10 h-10 rounded-full" :src="imageUrl + getUserData.img" alt="User photo" />
+        <img class="w-10 h-10 rounded-full" :src="imageUrl + 'image10.jpeg'" alt="User photo" />
       </div>
     </div>
   </div>

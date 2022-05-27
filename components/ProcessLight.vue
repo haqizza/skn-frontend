@@ -1,15 +1,13 @@
 <template>
-  <div>
+  <div class="w-full">
     <Navigation />
-    <Banner2 image="image7.jpeg" />
-    <ProcessFull />
-    <Consult />
+    <slot />
     <Footer />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
+  name: 'ProcessPage',
 }
 </script>

@@ -5,10 +5,10 @@
     />
     <div class="px-8 pt-5">
       <p class="font-semibold text-dark tracking-wider">Selamat Datang</p>
-      <h3 class="font-bold text-5xl my-4">{{ getUserData.name }}</h3>
+      <h3 class="font-bold text-5xl my-4">{{ $auth.user.nama }}</h3>
       <div class="grid grid-cols-4 grid-flow-row gap-8 mt-8">
         <div class="p-4 rounded-lg bg-accentOrange col-span-2 row-span-3">
-
+          {{  }}
         </div>
         <KPICard
           v-for="item in highlight"

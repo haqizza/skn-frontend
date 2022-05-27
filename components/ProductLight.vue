@@ -1,10 +1,7 @@
 <template>
-  <div>
+  <div class="w-full">
     <Navigation />
-    <Banner2 image="image7.jpeg" />
-    <Product2 />
-    <Strength />
-    <Consult />
+    <slot />
     <Footer />
   </div>
 </template>
