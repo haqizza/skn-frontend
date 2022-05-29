@@ -1,21 +1,22 @@
 <template>
   <div>
-    <LandingLight>
+    <ProcessLight>
       <component
         v-for="(component, index) in components"
         :key="'component'+index"
         :is="component.name"
         v-bind="component.props"
       />
-    </LandingLight>
+    </ProcessLight>
   </div>
 </template>
+
 <script>
 export default {
   async asyncData({ $axios }) {
     var components = []
     const cData = await $axios.$get(
-      'http://127.0.0.1:4000/components/page/' + 'home'
+      'http://127.0.0.1:4000/components/page/' + 'process'
     ).then((res) =>{
       for(var i = 0; i < res.length; i++){
         components.push({
@@ -29,6 +30,6 @@ export default {
     );
     return { components }
   },
-  name: 'LandingPage',
+  name: 'ProcessPage',
 }
 </script>
