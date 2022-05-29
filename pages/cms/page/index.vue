@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  // middleware: 'auth',
+  middleware: 'auth',
   layout: 'cms',
   async asyncData(context) {
     const pages = await context.app.$axios.$get(
