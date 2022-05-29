@@ -1,6 +1,7 @@
 <template>
   <div class="overflow-scroll">
       <Topbar :title="component.component" backButton=true />
+
       <ImagesModal
         title="Choose Image"
         :data="$data"
@@ -10,6 +11,7 @@
       >
 
       </ImagesModal>
+
       <div class="main-container flex flex-col my-6">
         <div class="flex flex-row justify-end">
           <div @click="updateComponent()" class="px-4 py-2 bg-accentOrange text-white rounded-xl">Save</div>
