@@ -17,6 +17,11 @@ export default {
     var components = []
     const cData = await $axios.$get(
       '/pages/process/components',
+      {
+        headers: {
+          'auth-token': $auth.strategy.token.get()
+        }
+      }
     ).then((res) =>{
       for(var i = 0; i < res.components.length; i++){
         components.push({

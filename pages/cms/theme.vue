@@ -7,11 +7,14 @@
       </div>
       <div class="flex flex-row">
         <img
-          v-for="(theme, index) in themes"
-          :key="'theme' + index"
-          :src="theme.url"
+          :src="assetUrl + 'black-theme.png'"
           class="h-48 mr-4 border border-solid border-slate-300 rounded-md overflow-hidden"
-          @click="changeTheme(theme.id)"
+          @click="toggleDarkMode()"
+        >
+        <img
+          :src="assetUrl + 'white-theme.png'"
+          class="h-48 mr-4 border border-solid border-slate-300 rounded-md overflow-hidden"
+          @click="toggleDarkMode()"
         >
       </div>
     </div>
@@ -23,17 +26,6 @@ import { mapMutations, mapGetters } from 'vuex';
 export default {
   middleware: 'auth',
   layout: 'cms',
-  async asyncData({ $axios, $auth }) {
-    let themes = await $axios.$get(
-      '/manifest/theme',
-      {
-        headers: {
-          'auth-token': $auth.strategy.token.get()
-        }
-      }
-    ).then((res) => res.themes);
-    return { themes }
-  },
   data() {
     return {
       assetUrl: process.env.assetsUrl,
@@ -42,22 +34,12 @@ export default {
   computed: {
     ...mapGetters(['getDark'])
   },
-  async fetch() {
-    let theme = await this.$axios.$get(
-      '/theme',
-      {
-        headers: {
-          'auth-token': this.$auth.strategy.token.get()
-        }
-      }
-    ).then(res => res.theme.id);
-
+  mounted() {
     if (localStorage.theme === undefined) {
       if (
-        theme == 2
-        // window.matchMedia &&
-        // window.matchMedia('(prefers-color-scheme: dark)')
-        //   .matches
+        window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)')
+          .matches
       ) {
         localStorage.theme = 'dark';
         this.SET_DARK(true);
@@ -68,25 +50,12 @@ export default {
       this.SET_DARK(localStorage.theme === 'dark');
     }
   },
-  fetchDelay: 300,
   methods: {
     ...mapMutations(['SET_DARK']),
-    changeTheme: async function(id) {
-      this.SET_DARK(!this.getDark);
-      localStorage.theme = this.getDark ? 'dark' : 'light';
-
-      await this.$axios.$put(
-        '/manifest/theme',
-        {
-          id: id
-        },
-        {
-          headers: {
-            'auth-token': this.$auth.strategy.token.get()
-          }
-        }
-      )
-    }
+    toggleDarkMode: function() {
+        this.SET_DARK(!this.getDark);
+        localStorage.theme = this.getDark ? 'dark' : 'light';
+      }
   }
 }
 </script>
