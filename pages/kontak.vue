@@ -1,29 +1,28 @@
 <template>
   <div>
-    <LandingLight>
+    <ContactLight>
       <component
         v-for="(component, index) in components"
         :key="'component'+index"
         :is="component.name"
         v-bind="component.props"
       />
-    </LandingLight>
+    </ContactLight>
   </div>
 </template>
+
 <script>
 export default {
-  name: 'LandingPage',
   async asyncData({ $axios, $auth }) {
     var components = []
     await $axios.$get(
-      '/pages/home/components',
+      '/pages/contact/components',
       {
         headers: {
           'auth-token': $auth.strategy.token.get()
         }
       }
-    )
-    .then((res) =>{
+    ).then((res) =>{
       for(var i = 0; i < res.components.length; i++){
         components.push({
           name: res.components[i].component,
@@ -36,5 +35,6 @@ export default {
     );
     return { components }
   },
+  name: 'ContactPage',
 }
 </script>
