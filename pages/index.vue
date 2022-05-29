@@ -10,18 +10,13 @@
     </LandingLight>
   </div>
 </template>
+
 <script>
 export default {
-  name: 'LandingPage',
   async asyncData({ $axios, $auth }) {
     var components = []
     await $axios.$get(
       '/pages/home/components',
-      {
-        headers: {
-          'auth-token': $auth.strategy.token.get()
-        }
-      }
     )
     .then((res) =>{
       for(var i = 0; i < res.components.length; i++){
@@ -36,5 +31,6 @@ export default {
     );
     return { components }
   },
+  name: 'LandingPage',
 }
 </script>
