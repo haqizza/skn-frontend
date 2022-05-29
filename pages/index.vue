@@ -29,6 +29,6 @@ export default {
     );
     return { components }
   },
-  name: 'IndexPage',
+  name: 'LandingPage',
 }
 </script>

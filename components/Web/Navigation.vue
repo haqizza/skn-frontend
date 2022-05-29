@@ -30,7 +30,7 @@
     </div>
     <!-- Desktop -->
     <div class="hidden py-2 px-4 md:flex md:flex-row justify-start align-items-center">
-      <NuxtLink to="/" class="w-fit ">
+      <NuxtLink to="/" class="w-fit">
         <img :src="imageUrl + 'LOGO.png'" alt="Logo Sinar Karya Nusa" class="w-16 mr-4 justify-self-center">
       </NuxtLink>
       <NuxtLink to="/tentang" class="w-fit p-2 mx-1 text-lg font-semibold text-dark  hover:text-accentOrange hover:border-b-2 hover:border-solid hover:border-accentOrange">

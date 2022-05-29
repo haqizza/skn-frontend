@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <div class="w-full h-40 md:h-96">
-      <img :src="imageUrl + compData.image.url" :alt="compData.image.alt" class="object-cover w-full h-full">
+      <img :src="imageUrl + compData.image[0].url" :alt="compData.image[0].alt" class="object-cover w-full h-full">
     </div>
   </div>
 </template>

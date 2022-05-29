@@ -68,7 +68,6 @@ export default {
       }
     },
     changePasswordVisibility: function() {
-      console.log(this.$auth.token);
       this.passwordInputType = this.passwordInputType == 'password' ? 'text' : 'password';
     }
   },

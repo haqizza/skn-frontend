@@ -17,7 +17,7 @@
           <p class="my-4 text-lg">{{ card.text }}</p>
         </div>
         <div class="h-60 w-96 mx-4">
-          <img :src="imageUrl + card.image.url" :alt="card.image.alt" class="w-full h-full">
+          <img :src="imageUrl + card.image[0].url" :alt="card.image[0].alt" class="w-full h-full">
         </div>
       </div>
     </div>

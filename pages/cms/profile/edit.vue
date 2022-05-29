@@ -63,9 +63,12 @@ export default {
       this.$auth.setUser({
         userId: this.$auth.user.userId,
         ...resUser.user
-      });
-      this.$router.go(-1);
+      })
+      this.goBack();
     },
+    goBack: function(){
+      this.$router.go(-1);
+    }
   }
 }
 </script>

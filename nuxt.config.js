@@ -46,6 +46,7 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxt/postcss8',
+    '@nuxtjs/pwa',
     '@nuxtjs/color-mode'
   ],
 
@@ -53,12 +54,23 @@ export default {
     classSuffix: '',
   },
 
+  pwa: {
+    meta: {
+
+    },
+    manifest: {
+      icons: [
+
+      ],
+    }
+  },
+
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/tailwindcss',
     'nuxt-highcharts',
     '@nuxtjs/axios',
-    '@nuxtjs/auth-next',
+    '@nuxtjs/auth-next'
   ],
 
   env: {

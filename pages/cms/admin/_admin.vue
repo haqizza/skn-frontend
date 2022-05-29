@@ -1,30 +1,38 @@
 <template>
-  <div>
-    <Topbar title="Edit User" backButton=true />
-    <div class="px-20 py-4 flex flex-row">
-      <div class="mx-8">
-        <table class="font-bold text-lg">
-          <tbody>
-            <tr class="bottomp-8">
-              <td class="pr-8">Name</td>
-              <td class="px-20"><input class="px-2 py-1 border-2 border-accentOrange rounded-xl" v-model="user.nama" /></td>
-            </tr>
-            <tr class="bottomp-8">
-              <td class="pr-8">Contact Number</td>
-              <td class="px-20">
-                <input class="px-2 py-1 border-2 border-accentOrange rounded-xl" v-model="user.phone" />
-              </td>
-            </tr>
-          </tbody>
-        </table>
+  <div class="overflow-scroll">
+    <Topbar title="Manage Admin" />
+    <div class="main-container">
+      <div class="flex flex-row justify-between items-center">
+        <div class="m-4 font-bold text-lg">All Admin</div>
+        <NuxtLink to="/cms/admin/add" class="h-fit px-4 py-2 flex flex-row items-center bg-accentOrange text-white rounded-xl">
+          <mdicon name="plus-circle" size="20" class="h-fit" />
+          <div class="ml-2">Add</div>
+        </NuxtLink>
       </div>
-      <div class="mx-8 flex flex-col justify-center items-center">
-        <div class="flex flex-col">
-          <div @click="saveProfile()" class="px-8 py-2 mt-10 text-center text-white font-bold bg-accentOrange rounded-full">
-            Edit Profile
+      <div class="flex flex-col">
+        <div class="px-4 py-2 flex flex-row font-semibold text-textGray border-b border-solid border-slate-300">
+          <div class="w-1/3">Email</div>
+          <div class="w-1/3">Name</div>
+          <div class="">Role</div>
+        </div>
+        <div v-for="(user, index) in users" :key="'user' + index" class="px-4 py-2 flex flex-row items-center font-medium border-b border-solid border-slate-300">
+          <div class="w-1/3 py-4">
+            {{ user.email }}
           </div>
-          <div @click="goBack()" class="px-8 py-2 mt-4 text-center text-white font-bold bg-accentOrange rounded-full">
-            Cancel
+          <div class="w-1/3">
+            {{ user.nama }}
+          </div>
+          <div class="w-1/6 py-4 text-white ">
+            <div v-if="user.groupId == 'CMSSuperAdmin'" class="w-fit px-6 py-2 bg-green-500 rounded-full">ADMIN</div>
+            <div v-else class="w-fit px-6 py-2 bg-yellow-500 rounded-full">EDITOR</div>
+          </div>
+          <div class="w-1/6 justify-self-end flex flex-row justify-end">
+            <NuxtLink :to="'/cms/admin/edit?id=' + user.id" class="p-3 rounded-full hover:bg-slate-100">
+              <mdicon name="pencil" size="20" class="h-fit" />
+            </NuxtLink>
+            <div v-if="user.groupId != 'CMSSuperAdmin'" @click="deleteUser(user.id)" class="p-3 rounded-full hover:bg-slate-100">
+              <mdicon name="trash-can" size="20" class="h-fit" />
+            </div>
           </div>
         </div>
       </div>
@@ -36,35 +44,24 @@
 export default {
   middleware: 'auth',
   layout: 'cms',
-  async asyncData($axios, route, $auth){
-    let user = await $axios.$get('/user' + route.params.admin,{
+  async asyncData(context){
+    let users = await context.app.$axios.$get('/user',{
       headers: {
-        'auth-token': $auth.strategy.token.get()
+        'auth-token': context.app.$auth.strategy.token.get()
       }
     })
-    .then(res => res.user);
+    .then(res => res.users);
 
-    return { user };
+    return { users };
   },
   methods: {
-    saveProfile: async function() {
-      await this.$axios.$put('/user/' + this.$auth.user.userId, {
-        nama: user.nama,
-        phone: user.phone
-      });
-
-      let resUser = await this.$axios.$get('/user/' + this.$auth.user.userId,
-      {
+    deleteUser: function(userId) {
+      this.$axios.$delete('user/'+ userId,{
         headers: {
           'auth-token': this.$auth.strategy.token.get()
         }
       });
-
-      this.$auth.setUser({
-        userId: this.$auth.user.userId,
-        ...resUser.user
-      })
-      this.$router.go(-1);
+      this.$nuxt.refresh();
     }
   }
 }

@@ -7,7 +7,7 @@
         <p class="my-4 text-lg">{{ compData.text }}</p>
       </div>
       <div class="w-1/2 h-72 mx-4">
-        <img :src="imageUrl + compData.image.url" :alt="compData.image.alt" class="object-cover w-full h-full">
+        <img :src="imageUrl + compData.image[0].url" :alt="compData.image[0].alt" class="object-cover w-full h-full">
       </div>
     </div>
   </div>

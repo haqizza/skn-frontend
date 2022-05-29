@@ -1,7 +1,7 @@
 <template>
   <div>
     <Topbar
-      :title="pageTitle"
+      title="CMSHomePage"
     />
     <div class="px-8 pt-5">
       <p class="font-semibold text-dark tracking-wider">Selamat Datang</p>
@@ -21,8 +21,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-
 export default {
   middleware: 'auth',
   name: 'CMSHomePage',
@@ -30,10 +28,6 @@ export default {
   data() {
     return{
       pageTitle: 'Overview',
-      userData: {
-        name: 'John Doe',
-        img: '/image/home.jpg'
-      },
       highlight: [
         {
           title: 'Pages',
@@ -53,9 +47,6 @@ export default {
         },
       ]
     }
-  },
-  computed: {
-    ...mapGetters(['getUserData'])
   }
 }
 </script>

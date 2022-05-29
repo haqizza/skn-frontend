@@ -26,11 +26,15 @@
 export default {
   // middleware: 'auth',
   layout: 'cms',
-  async asyncData({ $axios }) {
-    // var components = []
-    const pages = await $axios.$get(
-      'http://127.0.0.1:4000/pages'
-    ).then((res) => res);
+  async asyncData(context) {
+    const pages = await context.app.$axios.$get(
+      '/pages',
+      {
+        headers: {
+          'auth-token': context.app.$auth.strategy.token.get()
+        }
+      }
+    ).then((res) => res.pages);
     return { pages }
   },
   data() {

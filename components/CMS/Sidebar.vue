@@ -7,7 +7,7 @@
       </p>
     </div>
     <!-- active-menu -->
-    <NuxtLink to="/" class="flex flex-row flex-wrap px-6 py-3 text-textGray items-center">
+    <NuxtLink to="/cms" class="flex flex-row flex-wrap px-6 py-3 text-textGray items-center">
       <mdicon name="home" size="20" class="mr-2" />
       <div class="text-bold">Home</div>
     </NuxtLink>
@@ -23,10 +23,10 @@
       <mdicon name="book-multiple" size="20" class="mr-2" />
       <div class="text-bold">Manage Pages</div>
     </NuxtLink>
-    <NuxtLink to="/cms/template" class="flex flex-row flex-wrap px-6 py-3 text-textGray items-center">
+    <!-- <NuxtLink to="/cms/template" class="flex flex-row flex-wrap px-6 py-3 text-textGray items-center">
       <mdicon name="collage" size="20" class="mr-2" />
       <div class="text-bold">Manage Templates</div>
-    </NuxtLink>
+    </NuxtLink> -->
     <NuxtLink to="/cms/theme" class="flex flex-row flex-wrap px-6 py-3 text-textGray items-center">
       <mdicon name="format-paint" size="20" class="mr-2" />
       <div class="text-bold">Manage Theme</div>

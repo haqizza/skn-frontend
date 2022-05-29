@@ -23,14 +23,25 @@
 <script>
 export default {
   // middleware: 'auth',
-  async asyncData({ $axios, route }) {
+  async asyncData({ $axios, route, $auth }) {
     let page = await $axios.$get(
-      'http://127.0.0.1:4000/pages/' + route.params.page
-    ).then((res) => res);
+      '/pages/' + route.params.page,
+      {
+        headers: {
+          'auth-token': $auth.strategy.token.get()
+        }
+      }
+    ).then((res) => res.page);
 
     let components = await $axios.$get(
-      'http://127.0.0.1:4000/components/page/' + route.params.page
-    ).then((res) => res);
+      '/pages/' + route.params.page + '/components',
+      {
+        headers: {
+          'auth-token': $auth.strategy.token.get()
+        }
+      }
+    ).then((res) => res.components);
+
     return { components, page }
   },
   layout: 'cms',
