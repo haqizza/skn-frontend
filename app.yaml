@@ -1,0 +1,19 @@
+runtime: nodejs16
+
+handlers:
+  - url: /_nuxt
+    static_dir: dist/_nuxt
+    secure: always
+
+  - url: /(.*\.(gif|png|jpg|ico|txt))$
+    static_files: static/\1
+    upload: static/.*\.(gif|png|jpg|ico|txt)$
+    secure: always
+
+  - url: /.*
+    script: auto
+    secure: always
+
+env_variables:
+  ASSETS_URL: 'https://tauhiidcoder.com/assets/'
+  API_URL: 'https://cv-skn-1yyz1dxj.an.gateway.dev'

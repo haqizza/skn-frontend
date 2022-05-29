@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Mulish';
+    src: url('~/assets/font/Mulish-VariableFont_wght.ttf');
+  }
+}
+@layer components {
+  .right-colon::before {
+    content: ": ";
+    max-width: 30%
+  }
+
+  tr.bottomp-8 > td {
+    padding-bottom: theme('padding.8')
+  }
+
+  .main-container {
+    padding: theme('padding.6');
+    margin-right: 2rem;
+    margin-left: 2rem;
+    background-color: white;
+    border-width: 1px;
+    border-color: theme('colors.slate.300');
+    border-radius: theme('borderRadius.lg');
+    min-height: 50%;
+  }
+
+  .format-button {
+    padding: 0.25rem 0.5rem;
+    margin: theme('margin.1');
+    border-width: 1px;
+    border-color: theme('colors.slate.300');
+    border-radius: theme('borderRadius.md');
+  }
+
+  h1 {
+    @apply text-4xl font-bold
+  }
+
+  h2 {
+    @apply text-2xl  font-bold
+  }
+
+  h3 {
+    @apply text-xl font-bold
+  }
+
+  h4 {
+    @apply text-lg font-bold
+  }
+
+  h5 {
+    @apply text-base font-bold
+  }
+
+  h6 {
+    @apply text-sm font-bold
+  }
+}
