@@ -6,7 +6,7 @@
     </div>
     <div class="p-20 flex flex-row align-stretch ">
       <div class="w-1/2 h-72 mx-4">
-        <img :src="'~/assets/img/' + compData.image[0].url" :alt="compData.image[0].alt" class="object-cover w-full h-full">
+        <img :src="imageUrl + compData.image[0].url" :alt="compData.image[0].alt" class="object-contain w-full h-full">
       </div>
       <div class="w-1/2 mx-4 flex flex-col">
         <h2 class="my-4 text-yellow-800">{{ compData.title }}</h2>

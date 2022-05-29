@@ -12,7 +12,7 @@
             <mdicon name="collage" size="26" class="mr-4" />
             <div>{{ comp.component }}</div>
           </div>
-          <NuxtLink v-if="comp.content.title != 'Banner'" :to="'/cms/page/component?id=' + comp.id" class="p-2 hover:bg-slate-200 rounded-full">
+          <NuxtLink v-if="comp.component != 'Banner'" :to="'/cms/page/component?id=' + comp.id" class="p-2 hover:bg-slate-200 rounded-full">
             <mdicon name="pencil" size="26" />
           </NuxtLink>
         </div>

@@ -12,16 +12,23 @@
 </template>
 <script>
 export default {
-  async asyncData({ $axios }) {
+  name: 'LandingPage',
+  async asyncData({ $axios, $auth }) {
     var components = []
-    const cData = await $axios.$get(
-      'http://127.0.0.1:4000/components/page/' + 'home'
-    ).then((res) =>{
-      for(var i = 0; i < res.length; i++){
+    await $axios.$get(
+      '/pages/home/components',
+      {
+        headers: {
+          'auth-token': $auth.strategy.token.get()
+        }
+      }
+    )
+    .then((res) =>{
+      for(var i = 0; i < res.components.length; i++){
         components.push({
-          name: res[i].component,
+          name: res.components[i].component,
           props: {
-            compData: res[i].content
+            compData: res.components[i].content
           }
         })
       }
@@ -29,6 +36,5 @@ export default {
     );
     return { components }
   },
-  name: 'LandingPage',
 }
 </script>
