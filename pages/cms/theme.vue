@@ -7,12 +7,12 @@
       </div>
       <div class="flex flex-row">
         <img
-          src="~/assets/img/black-theme.png"
+          :src="assetUrl + 'black-theme.png'"
           class="h-48 mr-4 border border-solid border-slate-300 rounded-md overflow-hidden"
           @click="toggleDarkMode()"
         >
         <img
-          src="~/assets/img/white-theme.png"
+          :src="assetUrl + 'white-theme.png'"
           class="h-48 mr-4 border border-solid border-slate-300 rounded-md overflow-hidden"
           @click="toggleDarkMode()"
         >
@@ -26,6 +26,11 @@ import { mapMutations, mapGetters } from 'vuex';
 export default {
   middleware: 'auth',
   layout: 'cms',
+  data() {
+    return {
+      assetUrl: process.env.assetsUrl,
+    }
+  },
   computed: {
     ...mapGetters(['getDark'])
   },

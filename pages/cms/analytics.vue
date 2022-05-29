@@ -49,7 +49,7 @@ export default {
       caption: '',
       title: 'Visitor Graphics',
       subtitle: 'as of',
-      points: [14,12,10,15,12,6,8,2,0,4,21,1],
+      points: [14,12,10,15,12,6,8,2,0,4,21,1,12,5,8,2,5,7,3,8,1,7,5,12,16,2,1],
       seriesColor: '#F39200',
       animationDuration: 1000,
       chartType: 'spline',
