@@ -5,17 +5,17 @@
     <div class="w-full flex flex-row">
       <div class="w-1/2 m-4 flex flex-col">
         <div class="mb-1">Nama</div>
-        <input type="text" class="mb-4 px-6 py-2 border-2 border-accentOrange rounded-xl">
+        <input type="text" class="mb-4 px-4 py-2 border-2 border-accentOrange rounded-xl">
         <div class="mb-1">Email</div>
-        <input type="email" class="mb-4 px-6 py-2 border-2 border-accentOrange rounded-xl">
+        <input type="email" class="mb-4 px-4 py-2 border-2 border-accentOrange rounded-xl">
         <div class="mb-1">No. Telp</div>
-        <input type="text" class="mb-4 px-6 py-2 border-2 border-accentOrange rounded-xl">
-        <div class="mb-1">Media Sosial</div>
-        <input type="text" class="mb-4 px-6 py-2 border-2 border-accentOrange rounded-xl">
+        <input type="text" class="mb-4 px-4 py-2 border-2 border-accentOrange rounded-xl">
+        <div class="">Media Sosial</div>
+        <input type="text" class="mb-4 px-4 py-2 border-2 border-accentOrange rounded-xl">
       </div>
       <div class="w-1/2 m-4">
         <div class="mb-1">Pesan</div>
-        <textarea type="text" class="w-full h-full mb-4 px-6 py-2 border-2 border-accentOrange rounded-xl" placeholder="Tuliskan pesan Anda disini">
+        <textarea type="text" class="w-full h-5/6 mb-4 px-6 py-2 border-2 border-accentOrange rounded-xl" placeholder="Tuliskan pesan Anda disini">
         </textarea>
       </div>
     </div>

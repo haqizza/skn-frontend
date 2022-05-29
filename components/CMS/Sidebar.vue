@@ -1,7 +1,7 @@
 <template>
   <div class="w-1/6 min-w-fit flex flex-col bg-dark">
     <div class=" py-4 flex flex-row items-center justify-center">
-      <img class="w-14 pr-2" src="~/assets/img/logo.png" alt="Logo Sinar Karya Nusa">
+      <img class="w-14 pr-2" :src="imageUrl + 'logo-white.png'" alt="Logo Sinar Karya Nusa">
       <p class="text-textGray font-xl font-bold">
         SKN Admin
       </p>
@@ -47,7 +47,12 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      imageUrl: process.env.assetsUrl,
+    }
+  },}
 </script>
 
 <style scoped>
