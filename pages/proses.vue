@@ -13,15 +13,20 @@
 
 <script>
 export default {
-  async asyncData({ $axios, $auth }) {
+  head: {
+    title: 'Process Pages',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Halaman Proses Pembuatan Pallet'
+      }
+    ],
+  },
+  async asyncData({ $axios }) {
     var components = []
     const cData = await $axios.$get(
       '/pages/process/components',
-      {
-        headers: {
-          'auth-token': $auth.strategy.token.get()
-        }
-      }
     ).then((res) =>{
       for(var i = 0; i < res.components.length; i++){
         components.push({
