@@ -13,25 +13,16 @@
 
 <script>
 export default {
-    head: {
-    title: 'Process Pages',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'Halaman Proses Pembuatan Pallet'
-      }
-    ],
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, $auth }) {
     var components = []
     const cData = await $axios.$get(
-      'http://127.0.0.1:4000/components/page/' + 'process'
+      '/pages/process/components',
     ).then((res) =>{
-      for(var i = 0; i < res.length; i++){
+      for(var i = 0; i < res.components.length; i++){
         components.push({
-          name: res[i].component,
+          name: res.components[i].component,
           props: {
-            compData: res[i].content
+            compData: res.components[i].content
           }
         })
       }
@@ -40,6 +31,5 @@ export default {
     return { components }
   },
   name: 'ProcessPage',
-  }
 }
 </script>
