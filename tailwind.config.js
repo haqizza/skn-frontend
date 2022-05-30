@@ -29,8 +29,7 @@ module.exports = {
         '300': '300px'
       },
       minHeight: {
-        '50p': '50%',
-        'kpi' : '7rem'
+        '50p': '50%'
       }
     }
   },

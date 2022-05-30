@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'CV. Sinar Karya Nusa',
+    title: 'Sinar Karya Nusa',
     htmlAttrs: {
       lang: 'id'
     },
@@ -15,7 +15,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'https://tauhiidcoder.com/favicon/logo-white.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '~/assets/logo-white.ico' },
     ]
   },
 
@@ -56,7 +56,7 @@ export default {
 
   pwa: {
     meta: {
-      theme_color: 'light'
+
     },
     manifest: {
       icons: [

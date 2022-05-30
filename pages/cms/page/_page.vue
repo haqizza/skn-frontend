@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  middleware: 'auth',
+  // middleware: 'auth',
   async asyncData({ $axios, route, $auth }) {
     let page = await $axios.$get(
       '/pages/' + route.params.page,
