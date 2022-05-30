@@ -13,15 +13,20 @@
 
 <script>
 export default {
-  async asyncData({ $axios, $auth }) {
+  head: {
+    title: 'Activity Pages',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Halaman Aktivitas di lingkungan kantor'
+      }
+    ],
+  },
+  async asyncData({ $axios }) {
     var components = []
     await $axios.$get(
       '/pages/activity/components',
-      {
-        headers: {
-          'auth-token': $auth.strategy.token.get()
-        }
-      }
     ).then((res) =>{
       for(var i = 0; i < res.components.length; i++){
         components.push({

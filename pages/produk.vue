@@ -13,15 +13,25 @@
 
 <script>
 export default {
-  async asyncData({ $axios, $auth }) {
+  head: {
+    title: 'Product Pages',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Halaman yang menampilkan produk'
+      },
+      {
+        hid: 'keywords',
+        name: 'keywords',
+        content: 'pallet, palletKayu, skn, bekasi, sinar, karya, nusa, vacuum, pressure, awet, tahan, lama '
+      }
+    ],
+  },
+  async asyncData({ $axios }) {
     var components = []
     await $axios.$get(
       '/pages/product/components',
-      {
-        headers: {
-          'auth-token': $auth.strategy.token.get()
-        }
-      }
     ).then((res) =>{
       for(var i = 0; i < res.components.length; i++){
         components.push({
