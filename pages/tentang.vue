@@ -13,7 +13,17 @@
 
 <script>
 export default {
-  async asyncData({ $axios, $auth }) {
+  head: {
+    title: 'About Pages',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Halaman tentang perusahaan'
+      }
+    ],
+  },
+  async asyncData({ $axios }) {
     var components = []
     await $axios.$get(
       '/pages/about/components',

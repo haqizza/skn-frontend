@@ -7,6 +7,16 @@
 <script>
 
 export default {
+  head: {
+    title: 'Login Pages',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Halaman Autentifikasi'
+      }
+    ],
+  },
   name: "LoginPage"
 }
 </script>
