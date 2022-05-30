@@ -20,6 +20,11 @@ export default {
         hid: 'description',
         name: 'description',
         content: 'Halaman yang menampilkan produk'
+      },
+      {
+        hid: 'keywords',
+        name: 'keywords',
+        content: 'pallet, palletKayu, skn, bekasi, sinar, karya, nusa, vacuum, pressure, awet, tahan, lama '
       }
     ],
   },
