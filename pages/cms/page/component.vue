@@ -70,7 +70,7 @@
 
 <script>
 export default {
-  middleware: 'auth',
+  // middleware: 'auth',
   layout: 'cms',
   name: 'PageComponentEdit',
   async asyncData({ $axios, route, $auth }) {

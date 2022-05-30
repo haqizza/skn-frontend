@@ -13,16 +13,25 @@
 
 <script>
 export default {
-  async asyncData({ $axios, $auth }) {
+   head: {
+    title: 'Activity Pages',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Halaman Aktifitas dilingkungan kantor'
+      }
+    ],
+  async asyncData({ $axios }) {
     var components = []
-    await $axios.$get(
-      '/pages/activity/components',
+    const cData = await $axios.$get(
+      'http://127.0.0.1:4000/components/page/' + 'activity'
     ).then((res) =>{
-      for(var i = 0; i < res.components.length; i++){
+      for(var i = 0; i < res.length; i++){
         components.push({
-          name: res.components[i].component,
+          name: res[i].component,
           props: {
-            compData: res.components[i].content
+            compData: res[i].content
           }
         })
       }
@@ -31,5 +40,7 @@ export default {
     return { components }
   },
   name: 'ActivityPage',
+  }
+  
 }
 </script>
