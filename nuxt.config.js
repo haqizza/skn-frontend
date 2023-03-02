@@ -15,17 +15,12 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'https://tauhiidcoder.com/favicon/logo-white.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/image/logo-white.ico' },
     ]
   },
-
-  router: {
-    linkExactActiveClass: 'active-menu'
-  },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/css/main.scss'
+    '@/assets/css/main.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -38,65 +33,21 @@ export default {
   components: {
     dirs:[
       '~/components',
-      '~/components/CMS',
-      '~/components/Web',
     ]
   },
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxt/postcss8',
-    '@nuxtjs/pwa',
-    '@nuxtjs/color-mode'
   ],
-
-  colorMode: {
-    classSuffix: '',
-  },
-
-  pwa: {
-    meta: {
-      theme_color: 'light'
-    },
-    manifest: {
-      icons: [
-
-      ],
-    }
-  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/tailwindcss',
-    'nuxt-highcharts',
-    '@nuxtjs/axios',
-    '@nuxtjs/auth-next'
+    // '@nuxtjs/tailwindcss',
   ],
 
   env: {
     assetsUrl : process.env.ASSETS_URL,
-  },
-
-  auth: {
-    strategies: {
-      local: {
-        // scheme: "refresh",
-        // token: {
-          // property: "auth-token",
-          // global: true,
-          // required: true,
-          // type: "Bearer"
-        // },
-        endpoints: {
-          login: { url: "/auth", method: "post", propertyName: 'token' },
-          user: false,
-        }
-      }
-    }
-  },
-
-  highcharts: {
-
   },
 
   tailwindcss: {
@@ -108,10 +59,6 @@ export default {
     viewer: true,
   },
 
-  axios: {
-    baseURL: process.env.API_URL
-  },
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [
@@ -119,9 +66,11 @@ export default {
       'vue-carousel-3d'
     ],
     postcss: {
-      plugins: {
-        tailwindcss: {},
-        autoprefixer: {},
+      postcssOptions: {
+        plugins: {
+          tailwindcss: {},
+          autoprefixer: {},
+        },
       },
     },
   },

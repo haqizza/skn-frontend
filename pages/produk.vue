@@ -1,18 +1,15 @@
 <template>
   <div>
-    <ProductLight>
-      <component
-        v-for="(component, index) in components"
-        :key="'component'+index"
-        :is="component.name"
-        v-bind="component.props"
-      />
-    </ProductLight>
+    <Banner2 />
+    <Product2 />
+    <Strength />
+    <Consult />
   </div>
 </template>
 
 <script>
 export default {
+  name: 'ProductPage',
   head: {
     title: 'Product Pages',
     meta: [
@@ -28,23 +25,5 @@ export default {
       }
     ],
   },
-  async asyncData({ $axios }) {
-    var components = []
-    await $axios.$get(
-      '/pages/product/components',
-    ).then((res) =>{
-      for(var i = 0; i < res.components.length; i++){
-        components.push({
-          name: res.components[i].component,
-          props: {
-            compData: res.components[i].content
-          }
-        })
-      }
-      }
-    );
-    return { components }
-  },
-  name: 'ProductPage',
 }
 </script>
